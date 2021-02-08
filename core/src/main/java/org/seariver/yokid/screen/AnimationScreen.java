@@ -2,30 +2,29 @@ package org.seariver.yokid.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import org.seariver.yokid.BaseActor;
 import org.seariver.yokid.BaseScreen;
 import org.seariver.yokid.YokidGame;
+import org.seariver.yokid.actor.Yokid;
 
-public class OpenScreen extends BaseScreen {
+import static org.seariver.yokid.BaseActor.setWorldBounds;
+
+public class AnimationScreen extends BaseScreen {
 
     @Override
     public void initialize() {
-        BaseActor openTheme = new BaseActor(0, 0, mainStage);
-        openTheme.loadTexture("open-screen.png");
+        new Yokid(100, 100, mainStage);
+        setWorldBounds(YokidGame.WIDTH, YokidGame.HEIGHT);
     }
 
     @Override
     public void update(float deltaTime) {
     }
 
+    @Override
     public boolean keyDown(int keyCode) {
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
-            YokidGame.setActiveScreen(new AnimationScreen());
-        }
-
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            Gdx.app.exit();
+            YokidGame.setActiveScreen(new OpenScreen());
         }
 
         return false;
