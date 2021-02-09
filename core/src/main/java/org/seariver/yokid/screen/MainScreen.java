@@ -10,14 +10,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import org.seariver.yokid.YokidGame;
 
-public class OpenScreen implements Screen {
+public class MainScreen implements Screen {
 
     private Game game;
     private OrthographicCamera camera;
     private SpriteBatch batch;
-    private Texture openTexture;
+    private Texture yokidStand;
 
-    public OpenScreen(Game game) {
+    public MainScreen(Game game) {
         this.game = game;
         camera = new OrthographicCamera();
         batch = new SpriteBatch();
@@ -26,14 +26,14 @@ public class OpenScreen implements Screen {
     @Override
     public void show() {
         camera.setToOrtho(false, YokidGame.WIDTH, YokidGame.HEIGHT);
-        openTexture = new Texture(Gdx.files.internal("open-screen.png"));
+        yokidStand = new Texture(Gdx.files.internal("yokid-front.png"));
     }
 
     @Override
     public void render(float delta) {
 
-        if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
-            game.setScreen(new MainScreen(game));
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            game.setScreen(new OpenScreen(game));
             return;
         }
 
@@ -43,7 +43,7 @@ public class OpenScreen implements Screen {
         // draw graphics
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(openTexture, 0, 0);
+        batch.draw(yokidStand, 0, 0);
         batch.end();
     }
 
@@ -67,7 +67,7 @@ public class OpenScreen implements Screen {
         game = null;
         camera = null;
         batch = null;
-        openTexture = null;
+        yokidStand = null;
     }
 
     @Override
@@ -75,6 +75,6 @@ public class OpenScreen implements Screen {
         game = null;
         camera = null;
         batch = null;
-        openTexture = null;
+        yokidStand = null;
     }
 }
