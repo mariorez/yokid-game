@@ -64,10 +64,7 @@ public class MainScreen implements Screen {
 
     @Override
     public void hide() {
-        game = null;
-        camera = null;
-        batch = null;
-        yokidStand = null;
+        dispose();
     }
 
     @Override

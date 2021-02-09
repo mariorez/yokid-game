@@ -64,10 +64,7 @@ public class OpenScreen implements Screen {
 
     @Override
     public void hide() {
-        game = null;
-        camera = null;
-        batch = null;
-        openTexture = null;
+        dispose();
     }
 
     @Override
