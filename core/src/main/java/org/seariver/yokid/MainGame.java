@@ -9,6 +9,7 @@ public class MainGame extends BaseGame {
 
     @Override
     public void create() {
+        super.create();
         setActiveScreen(new OpenScreen());
     }
 

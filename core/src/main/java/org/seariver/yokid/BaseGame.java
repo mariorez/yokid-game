@@ -1,6 +1,8 @@
 package org.seariver.yokid;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import org.seariver.yokid.screen.BaseScreen;
 
 public abstract class BaseGame extends Game {
@@ -9,6 +11,16 @@ public abstract class BaseGame extends Game {
 
     public BaseGame() {
         game = this;
+    }
+
+    /**
+     * Called when game is initialized,
+     * after Gdx.input and other objects have been initialized.
+     */
+    public void create() {
+        // prepare for multiple classes/stages/actors to receive discrete input
+        InputMultiplexer im = new InputMultiplexer();
+        Gdx.input.setInputProcessor(im);
     }
 
     /**
