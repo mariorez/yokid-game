@@ -2,7 +2,7 @@ package org.seariver.yokid.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import org.seariver.yokid.YokidGame;
+import org.seariver.yokid.MainGame;
 
 /**
  * Launches the desktop (LWJGL3) application.
@@ -13,13 +13,13 @@ public class Lwjgl3Launcher {
     }
 
     private static Lwjgl3Application createApplication() {
-        return new Lwjgl3Application(new YokidGame(), getDefaultConfiguration());
+        return new Lwjgl3Application(new MainGame(), getDefaultConfiguration());
     }
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
         Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
         configuration.setTitle("YoKid Game");
-        configuration.setWindowedMode(YokidGame.WIDTH, YokidGame.HEIGHT);
+        configuration.setWindowedMode(MainGame.WIDTH, MainGame.HEIGHT);
         configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
         return configuration;
     }

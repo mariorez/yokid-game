@@ -2,65 +2,22 @@ package org.seariver.yokid.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.ScreenUtils;
-import org.seariver.yokid.YokidGame;
+import org.seariver.yokid.MainGame;
+import org.seariver.yokid.actor.BaseActor;
 
-public class OpenScreen implements Screen {
 
-    private final YokidGame game;
-    private OrthographicCamera camera;
-    private Texture openTexture;
+public class OpenScreen extends BaseScreen {
 
-    public OpenScreen(final YokidGame game) {
-        this.game = game;
-        camera = new OrthographicCamera();
-        camera.setToOrtho(false, YokidGame.WIDTH, YokidGame.HEIGHT);
-        openTexture = new Texture(Gdx.files.internal("open-screen.png"));
+    @Override
+    public void initialize() {
+        BaseActor actor = new BaseActor(0, 0, mainStage);
+        actor.setImage("open-screen.png");
     }
 
     @Override
-    public void show() {
-    }
-
-    @Override
-    public void render(float delta) {
-
-        // clear screen
-        ScreenUtils.clear(0, 0, 0.2f, 1);
-        camera.update();
-        // draw graphics
-        game.getBatch().setProjectionMatrix(camera.combined);
-        game.getBatch().begin();
-        game.getBatch().draw(openTexture, 0, 0);
-        game.getBatch().end();
-
+    public void update(float deltaTime) {
         if (Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
-            game.setScreen(new MainScreen(game));
+            MainGame.setActiveScreen(new MainScreen());
         }
-    }
-
-    @Override
-    public void resize(int width, int height) {
-    }
-
-    @Override
-    public void pause() {
-    }
-
-    @Override
-    public void resume() {
-    }
-
-    @Override
-    public void hide() {
-    }
-
-    @Override
-    public void dispose() {
-        openTexture.dispose();
-        game.getBatch().dispose();
     }
 }
