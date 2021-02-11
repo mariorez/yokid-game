@@ -10,7 +10,7 @@ public class MainScreen extends BaseScreen {
 
     @Override
     public void initialize() {
-        yokidActor = new YokidActor(0, 0, mainStage);
+        yokidActor = new YokidActor(100, 100, mainStage);
     }
 
     @Override

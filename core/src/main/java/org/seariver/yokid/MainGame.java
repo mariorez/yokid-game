@@ -10,16 +10,7 @@ public class MainGame extends BaseGame {
     @Override
     public void create() {
         super.create();
+        activateDebug();
         setActiveScreen(new OpenScreen());
-    }
-
-    @Override
-    public void render() {
-        super.render();
-    }
-
-    @Override
-    public void dispose() {
-        super.dispose();
     }
 }

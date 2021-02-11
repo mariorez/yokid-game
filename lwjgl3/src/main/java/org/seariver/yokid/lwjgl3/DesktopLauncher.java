@@ -7,7 +7,7 @@ import org.seariver.yokid.MainGame;
 /**
  * Launches the desktop (LWJGL3) application.
  */
-public class Lwjgl3Launcher {
+public class DesktopLauncher {
     public static void main(String[] args) {
         createApplication();
     }
