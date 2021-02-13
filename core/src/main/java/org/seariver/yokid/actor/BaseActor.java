@@ -6,24 +6,35 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class BaseActor extends Actor {
 
-    private Texture texture;
+    private Texture currentTexture;
+    private Map<String, Texture> textureMap;
 
     public BaseActor(float x, float y, Stage stage) {
         super();
         setPosition(x, y);
         stage.addActor(this);
+        textureMap = new HashMap<>();
     }
 
     public Texture getImage() {
-        return texture;
+        return currentTexture;
     }
 
     public void setImage(String path) {
-        texture = new Texture(Gdx.files.internal(path));
-        setSize(texture.getWidth(), texture.getHeight());
+        if (textureMap.containsKey(path)) {
+            currentTexture = textureMap.get(path);
+            setSize(currentTexture.getWidth(), currentTexture.getHeight());
+            return;
+        }
+        currentTexture = new Texture(Gdx.files.internal(path));
+        textureMap.put(path, currentTexture);
+        setSize(currentTexture.getWidth(), currentTexture.getHeight());
     }
 
     @Override
