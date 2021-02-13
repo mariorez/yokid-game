@@ -17,10 +17,10 @@ public class YokidActor extends BaseActor {
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             setImage("yokid-left.png");
-            setX(getX() - 2);
+            setX(getX() - 5);
         } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             setImage("yokid-right.png");
-            setX(getX() + 2);
+            setX(getX() + 5);
         } else {
             setImage("yokid-front.png");
         }
