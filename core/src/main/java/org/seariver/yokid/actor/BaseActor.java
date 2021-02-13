@@ -3,14 +3,13 @@ package org.seariver.yokid.actor;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 
 public class BaseActor extends Actor {
 
-    private TextureRegion textureRegion;
+    private Texture texture;
 
     public BaseActor(float x, float y, Stage stage) {
         super();
@@ -18,13 +17,12 @@ public class BaseActor extends Actor {
         stage.addActor(this);
     }
 
-    public TextureRegion getImage() {
-        return textureRegion;
+    public Texture getImage() {
+        return texture;
     }
 
     public void setImage(String path) {
-        Texture texture = new Texture(Gdx.files.internal(path));
-        textureRegion = new TextureRegion(texture);
+        texture = new Texture(Gdx.files.internal(path));
         setSize(texture.getWidth(), texture.getHeight());
     }
 

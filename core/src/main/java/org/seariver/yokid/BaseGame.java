@@ -10,8 +10,8 @@ import static com.badlogic.gdx.Application.LOG_DEBUG;
 
 public abstract class BaseGame extends Game {
 
-    private static BaseGame game;
     private static final String TAG = BaseGame.class.getSimpleName();
+    private static BaseGame game;
     private String lastScreen = "";
     private String currentScreen = "";
     protected boolean activateDebug = false;
