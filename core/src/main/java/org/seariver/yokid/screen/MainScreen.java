@@ -1,7 +1,7 @@
 package org.seariver.yokid.screen;
 
 import com.badlogic.gdx.Input;
-import org.seariver.yokid.MainGame;
+import org.seariver.yokid.GameInitializer;
 import org.seariver.yokid.actor.YokidActor;
 
 public class MainScreen extends BaseScreen {
@@ -20,7 +20,7 @@ public class MainScreen extends BaseScreen {
     @Override
     public boolean keyDown(int keycode) {
         if (keycode == Input.Keys.ESCAPE) {
-            MainGame.setActiveScreen(new OpenScreen());
+            GameInitializer.setActiveScreen(new OpenScreen());
         }
         return false;
     }

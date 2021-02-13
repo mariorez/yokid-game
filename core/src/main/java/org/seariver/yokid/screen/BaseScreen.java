@@ -7,14 +7,14 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FillViewport;
-import org.seariver.yokid.MainGame;
+import org.seariver.yokid.GameInitializer;
 
 public abstract class BaseScreen implements Screen, InputProcessor {
 
     protected Stage mainStage;
 
     public BaseScreen() {
-        mainStage = new Stage(new FillViewport(MainGame.WIDTH, MainGame.HEIGHT));
+        mainStage = new Stage(new FillViewport(GameInitializer.WIDTH, GameInitializer.HEIGHT));
         initialize();
     }
 
