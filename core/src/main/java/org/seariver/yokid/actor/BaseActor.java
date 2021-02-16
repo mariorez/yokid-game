@@ -22,18 +22,13 @@ public class BaseActor extends Actor {
         textureMap = new HashMap<>();
     }
 
-    public Texture getImage() {
-        return currentTexture;
-    }
-
     public void setImage(String path) {
         if (textureMap.containsKey(path)) {
             currentTexture = textureMap.get(path);
-            setSize(currentTexture.getWidth(), currentTexture.getHeight());
-            return;
+        } else {
+            currentTexture = new Texture(Gdx.files.internal(path));
+            textureMap.put(path, currentTexture);
         }
-        currentTexture = new Texture(Gdx.files.internal(path));
-        textureMap.put(path, currentTexture);
         setSize(currentTexture.getWidth(), currentTexture.getHeight());
     }
 
@@ -44,7 +39,7 @@ public class BaseActor extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        if (getImage() != null) batch.draw(getImage(), getX(), getY());
+        if (currentTexture != null) batch.draw(currentTexture, getX(), getY());
         super.draw(batch, parentAlpha);
     }
 }
