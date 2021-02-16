@@ -2,15 +2,15 @@ package org.seariver.yokid.screen;
 
 import com.badlogic.gdx.Input;
 import org.seariver.yokid.GameInitializer;
-import org.seariver.yokid.actor.YokidActor;
+import org.seariver.yokid.actor.Yokid;
 
 public class MainScreen extends BaseScreen {
 
-    private YokidActor yokidActor;
+    private Yokid yokid;
 
     @Override
     public void initialize() {
-        yokidActor = new YokidActor(100, 100, mainStage);
+        yokid = new Yokid(100, 100, mainStage);
     }
 
     @Override

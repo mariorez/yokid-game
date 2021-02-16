@@ -3,6 +3,7 @@ package org.seariver.yokid.actor;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
@@ -12,8 +13,8 @@ import java.util.Map;
 
 public class BaseActor extends Actor {
 
-    private Texture currentTexture;
-    private Map<String, Texture> textureMap;
+    private Sprite currentSprite;
+    private Map<String, Sprite> textureMap;
 
     public BaseActor(float x, float y, Stage stage) {
         super();
@@ -22,24 +23,29 @@ public class BaseActor extends Actor {
         textureMap = new HashMap<>();
     }
 
-    public void setImage(String path) {
+    public void loadSprite(String path) {
         if (textureMap.containsKey(path)) {
-            currentTexture = textureMap.get(path);
+            currentSprite = textureMap.get(path);
         } else {
-            currentTexture = new Texture(Gdx.files.internal(path));
-            textureMap.put(path, currentTexture);
+            currentSprite = new Sprite(new Texture(Gdx.files.internal(path)));
+            textureMap.put(path, currentSprite);
         }
-        setSize(currentTexture.getWidth(), currentTexture.getHeight());
+
+        setSize(currentSprite.getWidth(), currentSprite.getHeight());
     }
 
     @Override
     public void act(float delta) {
+        currentSprite.setPosition(getX(), getY());
         super.act(delta);
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        if (currentTexture != null) batch.draw(currentTexture, getX(), getY());
+        if (currentSprite != null) {
+            currentSprite.draw(batch);
+        }
+
         super.draw(batch, parentAlpha);
     }
 }

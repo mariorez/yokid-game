@@ -10,7 +10,7 @@ public class OpenScreen extends BaseScreen {
     @Override
     public void initialize() {
         BaseActor actor = new BaseActor(0, 0, mainStage);
-        actor.setImage("open-screen.png");
+        actor.loadSprite("open-screen.png");
     }
 
     @Override
