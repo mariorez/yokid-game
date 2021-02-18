@@ -23,17 +23,6 @@ public class BaseActor extends Actor {
         textureMap = new HashMap<>();
     }
 
-    public void loadSprite(String path) {
-        if (textureMap.containsKey(path)) {
-            currentSprite = textureMap.get(path);
-        } else {
-            currentSprite = new Sprite(new Texture(Gdx.files.internal(path)));
-            textureMap.put(path, currentSprite);
-        }
-
-        setSize(currentSprite.getWidth(), currentSprite.getHeight());
-    }
-
     @Override
     public void act(float delta) {
         currentSprite.setPosition(getX(), getY());
@@ -47,5 +36,18 @@ public class BaseActor extends Actor {
         }
 
         super.draw(batch, parentAlpha);
+    }
+
+    public Sprite loadSprite(String path) {
+        if (textureMap.containsKey(path)) {
+            currentSprite = textureMap.get(path);
+        } else {
+            currentSprite = new Sprite(new Texture(Gdx.files.internal(path)));
+            textureMap.put(path, currentSprite);
+        }
+
+        setSize(currentSprite.getWidth(), currentSprite.getHeight());
+
+        return currentSprite;
     }
 }
