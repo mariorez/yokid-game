@@ -8,8 +8,8 @@ public class OpenScreen extends BaseScreen {
 
     @Override
     public void initialize() {
-        BaseActor open = new BaseActor(0, 0, mainStage);
-        open.loadSprite("open-screen.png");
+        BaseActor background = new BaseActor(0, 0, mainStage);
+        background.loadSprite("open-background.png");
     }
 
     @Override

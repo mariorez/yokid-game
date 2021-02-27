@@ -68,6 +68,17 @@ public class BaseActor extends Group {
     }
 
     /**
+     * If an edge of an object moves past the world bounds,
+     * adjust its position to keep it completely on screen.
+     */
+    public void boundToWorld() {
+        if (getX() < 0) setX(0);
+        if (getY() < 0) setY(0);
+        if (getX() + getWidth() > worldBounds.width) setX(worldBounds.width - getWidth());
+        if (getY() + getHeight() > worldBounds.height) setY(worldBounds.height - getHeight());
+    }
+
+    /**
      * Center camera on this object, while keeping camera's range of view
      * (determined by screen size) completely within world bounds.
      */

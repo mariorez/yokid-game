@@ -42,6 +42,7 @@ public class Yokid extends BaseActor {
 
         yokidSprite.setRegion(region);
         yokidSprite.setSize(tileWidth, tileHeight);
+        setSize(tileWidth, tileHeight);
     }
 
     @Override
@@ -64,6 +65,7 @@ public class Yokid extends BaseActor {
         yokidSprite.flip((facing == Direction.LEFT), false);
 
         alignCamera();
+        boundToWorld();
 
         super.act(delta);
     }
