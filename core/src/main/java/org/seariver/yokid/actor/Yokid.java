@@ -63,6 +63,8 @@ public class Yokid extends BaseActor {
 
         yokidSprite.flip((facing == Direction.LEFT), false);
 
+        alignCamera();
+
         super.act(delta);
     }
 }

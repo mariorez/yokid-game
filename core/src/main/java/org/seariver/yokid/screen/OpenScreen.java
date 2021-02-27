@@ -4,13 +4,12 @@ import com.badlogic.gdx.Input;
 import org.seariver.yokid.GameInitializer;
 import org.seariver.yokid.actor.BaseActor;
 
-
 public class OpenScreen extends BaseScreen {
 
     @Override
     public void initialize() {
-        BaseActor actor = new BaseActor(0, 0, mainStage);
-        actor.loadSprite("open-screen.png");
+        BaseActor open = new BaseActor(0, 0, mainStage);
+        open.loadSprite("open-screen.png");
     }
 
     @Override
