@@ -9,9 +9,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 
+import static com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP;
+
 public class Yokid extends BaseActor {
 
     public static final float MOVE_X_FACTOR = 5f;
+    public static final float ANIMATION_FRAME_DURATION = 0.08f;
 
     private final Animation<TextureRegion> animation;
     private Sprite yokidSprite;
@@ -37,7 +40,7 @@ public class Yokid extends BaseActor {
             textureArray.add(regions[0][col]);
         }
 
-        animation = new Animation(0.08f, textureArray, Animation.PlayMode.LOOP);
+        animation = new Animation<>(ANIMATION_FRAME_DURATION, textureArray, LOOP);
         TextureRegion region = animation.getKeyFrame(stateTime);
 
         yokidSprite.setRegion(region);
